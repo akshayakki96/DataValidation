@@ -87,13 +87,13 @@ public class DataValidation {
         if (expectedStatus.equals("positive")) {
             Response responsedata = given()
                     .header("cache-control", "no-cache")
-                    .header("postman-token", "a02379b9-3724-a7bb-1863-96bedf292e8a")
-                    .header("userid", "kshitiz.lohia")
+                    .header("postman-token", "")
+                    .header("userid", "akshay.ahuja")
                     .header("Content-Type", "application/json")
                     .contentType("application/json")
                     .body(json).with()
                     .when()
-                    .put("/resources/DynamicResource?from_ts=1493942400&to_ts=1495065600&granularityType=daily&role=94")
+                    .put("")
                     .then()
                     .statusCode(200)
                     .extract().response();
