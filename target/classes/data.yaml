@@ -1,0 +1,23 @@
+testcase: DYNAMIC-CPC_NEW-POSITIVE-001
+json: '{ "context_user_id": "kshitiz.lohia@inmobi.com", "request_mode":"sync","query_definition":{ "dateMode": "EVENT","attributes": [ { "column": "adgroup" } ], "measures": [ { "column": "total_burn" }, { "column": "cpc_new" }, { "column": "clicks" } ], "filters": [] } }'
+expectedStatus: positive
+input:
+  - "clicks"
+  - "total_burn"
+validate: "cpc_new=(total_burn/clicks)"
+---
+testcase: 001
+json: '{ "context_user_id": "bisanth.balakrishan@inmobi.com", "request_mode": "sync", "query_definition": { "dateMode": "EVENT", "attributes": [ { "column": "adgroup" } ], "measures": [ { "column": "total_burn" }, { "column": "cost_per_click" }, { "column": "clicks" } ], "filters": [] } }'
+expectedStatus: positive
+input:
+  - "clicks"
+  - "total_burn"
+validate: "cost_per_click=total_burn/clicks "
+---
+testcase: DYNAMIC-CPA-POSITIVE-001
+json: '{ "context_user_id": "kshitiz.lohia@inmobi.com", "request_mode":"sync","query_definition":{ "dateMode": "EVENT","attributes": [ { "column": "adgroup" } ], "measures": [ { "column": "cpa" },{ "column": "matched_conversions" }, { "column": "total_burn" }  ], "filters": [] } }'
+expectedStatus: positive
+input:
+  - "matched_conversions"
+  - "total_burn"
+validate: "cpa = (total_burn / matched_conversions)"
